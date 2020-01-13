@@ -4,7 +4,7 @@ function attack() {
   if(passivePlayer.protected === true){
     passivePlayer.lifePoint -= activePlayer.damage/2;
     passivePlayer.protected = false;
-  }else{
+  }else {
     passivePlayer.lifePoint -= activePlayer.damage;
 
   }

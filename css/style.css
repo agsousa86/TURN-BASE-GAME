@@ -2,17 +2,16 @@
 /* ==========================================================================
 	General Styles
 ========================================================================== */
-body{
-  font-family: 'Irish Grover', cursive;
+body {
+  font-family: 'Ravi Prakash', cursive;
   font-weight: 400;
-  background-color: #85CDCA;
-
+  background-color: #ff971d;
 }
 .btn{
   border-radius: 24px;
 }
 .btn-primary {
-  background-color:  #85CDCA !important;
+  background-color:  #ff971d !important;
   border-color: none !important;
   border: 0px !important;
   color: black !important;
@@ -74,8 +73,8 @@ h3 {
   }
 
 .range2 {
-  border: 1px solid #ffeb00;
-  background-color: #ffeb00;
+  border: 1px solid #448939;
+  background-color: #448939;
   box-shadow: 0 0 10px #000;
   cursor: pointer;
 }

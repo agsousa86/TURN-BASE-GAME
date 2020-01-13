@@ -1,10 +1,11 @@
 /* declare Variables */
 
-let cells =[];
+let cells =[]; // array
+let cell; // cellId
+var rY=[]; // horinzontal
+var rX=[]; // vertical
 
-var rY=[];
-var rX=[];
-var cell; // cellId
+
 var activePlayer;
 var passivePlayer;
 var box = $( "div#mapgen > div" );
