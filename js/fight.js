@@ -7,8 +7,8 @@ function attack() {
     passivePlayer.lifePoint -= activePlayer.damage;
 
   }
-  
-  if(passivePlayer.lifePoint < 0){ passivePlayer.lifePoint=0; }
+
+  if(passivePlayer.lifePoint < 0) { passivePlayer.lifePoint=0; }
   //update lifepoints UI
   $("#"+passivePlayer.name+"LP").text(passivePlayer.lifePoint);
   //using animate css
@@ -17,30 +17,30 @@ function attack() {
                         $(this).removeClass('animated bounce');});
 
 
-  if(passivePlayer.lifePoint === 0){
+  if(passivePlayer.lifePoint === 0) {
   	if(activePlayer.name === "player1"){
   		activePlayer.name = "player1";
   	}else{
   		activePlayer.name = "player2";
-  	}	
+  	}
   	$("#winnerbox .modal-body p:nth-child(3)").text(activePlayer.name);
-  	$("#winner").attr("src","img/"+activePlayer.image);
-    $("#winnerbox").modal(); 
+  	$("#winner").attr("src","img/" + activePlayer.image);
+    $("#winnerbox").modal();
     $("div#mapgen > div").removeClass('range');
   }else{
     passivePlayer.activatePlayer();
     fightButtonEnabling();
-  }    
+  }
 };
 
-function defend(){
+function defend() {
     activePlayer.protected = true;
     passivePlayer.activatePlayer();
     fightButtonEnabling();
 }
 
-function fightButtonEnabling(){
-  if (activePlayer === player1){
+function fightButtonEnabling() {
+  if (activePlayer === player1) {
     buttonP1A.removeAttr('disabled');
     buttonP1D.removeAttr('disabled');
     buttonP2A.attr('disabled', 'disabled');

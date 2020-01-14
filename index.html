@@ -21,18 +21,13 @@
   <body>
 
 	<div class="container-fluid">
-			<div class="row">
-
-				<div class="col-sm-12"><h3 class="display-4 text-center animated lightSpeedIn">Z Fight</h3></div>
-
-			</div>
+		<div class="row">
+			<div class="col-sm-12"><h3 class="display-4 text-center animated lightSpeedIn">Z Fight</h3></div>
+		</div>
 
 		<div class="row d-flex align-items-center">
-
 			<div class="col-sm-3 text-center">
-
-			<button type="button" class="btn btn-success animated bounceInLeft " onclick="location.reload();">New Game</button>
-
+			 <button type="button" class="btn btn-success animated bounceInLeft " onclick="location.reload();">New Game</button>
 			</div>
 
 			<div class="col-sm-6 text-center bg-light weaponds">
@@ -43,31 +38,22 @@
 					<div class="col-sm-3"><h5>Ball</h5><img src='img/dragon_ball.png' height="40" width="40" alt="Ball"><p>Damage: 50</p></div>
 				</div>
 			</div>
+
 			<div class="col-sm-3 text-center">
-
 				<button type="button" class="btn btn-success animated bounceInRight" data-toggle="modal" data-target="#rulesmodal">Game Rules</button>
-
 			</div>
-
-
 
 		</div><div class="row"><hr class="my-2"></div>
 
 		<div class="row">
-
 			<div class="col-sm-3 text-center bg-light left">
-
 				<h3>Player 1</h3>
 					<p class="btn btn-primary btn-md disabled" id="player1LP">100</p>
 				<h4>Damage</h4>
 					<p id="player1damage">10</p>
-
 						<button type="button" value="Attack" class="btn btn-danger" id="P1A" disabled onclick="attack()">Attack</button>
 						<button type="button" value="Defend" class="btn btn-success" id="P1D" disabled onclick="defend()">Defend</button>
-
-
 						<img src="img/player1.png" alt="Goku Player 1" class="img-rounded" height="200" width="200" id="imgleft1">
-
 			</div>
 
 			<div class="col-sm-6 text-center">
@@ -154,8 +140,9 @@
 
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
 	<!-- Javascript -->
 	<script src="js/map.js"></script>
 	<script src="js/game.js"></script>

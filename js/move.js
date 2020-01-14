@@ -10,10 +10,10 @@ Player.prototype.setRange = function(currentPostion) {
   let left = currentPostion -1;
   let right = currentPostion + 1;
   let blocked = false;
-  var xmin = currentPostion - currentPostion % 10;
-  var xmax = xmin + 9;
+  let xmin = currentPostion - currentPostion % 10;
+  let xmax = xmin + 9;
 
-  while(up >=0 && up >= currentPostion - 30){
+  while(up >=0 && up >= currentPostion - 30) {
     blocked = false;
     let classList = $("div#"+up).attr('class').split(/\s+/);
     $.each(classList, function(index, item) {
@@ -114,30 +114,30 @@ Player.prototype.move = function(target) {
 
   //parses a string and returns an integer
   target = parseInt(target);
-  //arr change
-  arr.splice(this.position, 1);
-  arr[target] = this.name;
+  //cells  (array) change
+  cells.splice(this.position, 1);
+  cells[target] = this.name;
 
   // class change
-  var oldbox = document.getElementById(this.position);
+  let oldbox = document.getElementById(this.position);
   oldbox.classList.remove(this.name);
   var newbox = document.getElementById(target);
   newbox.classList.add(this.name);
 
   //check for weapon
-  var searchFrom = this.position;
-  var searchTo = target;
+  let searchFrom = this.position;
+  let searchTo = target;
   checkWeapon(searchFrom, searchTo, target);
 
   this.position = target;
-  playersNearby = [target-1,target+1,target-10,target+10];
+  playersNearby = [target - 1, target + 1, target - 10, target + 10];
 
-  switch(this.name) {
+  switch(this.name) { //o que esta a fazer este switch ?
     case 'player1':
-      newbox.innerHTML = '<img src="img/'+this.image+'" height="58"></img>';
+      newbox.innerHTML = '<img src="img/' + this.image + '" height="58"></img>';
       break;
     case 'player2':
-      newbox.innerHTML = '<img src="img/'+this.image+'" height="58"></img>';
+      newbox.innerHTML = '<img src="img/' + this.image + '" height="58"></img>';
       break;
   }
   oldbox.innerHTML = "";
@@ -185,10 +185,10 @@ box.on("click", function() {
 
 
 
-/*  Change weapon  */
+/*  Change weapon  */ // esta logica n percebo mm
 function checkWeapon(searchFrom, searchTo, target) {
-  var diff = searchTo - searchFrom;
-  var movedArr = [];
+  let diff = searchTo - searchFrom;
+  let movedArr = [];
   if (diff > 0){
     if (diff <= 3){
       for(let i = searchFrom; i <= searchTo; i++){
@@ -219,8 +219,8 @@ function checkWeapon(searchFrom, searchTo, target) {
     }
   }
   //change weapond and damage value
-  for(var j = 0; j <= movedArr.length; j++){
-    var passedBox=$( "div#" + movedArr[j] );
+  for(let j = 0; j <= movedArr.length; j++){
+    let passedBox=$( "div#" + movedArr[j] );
 
     oldWeapon = activePlayer.weapon;
 
