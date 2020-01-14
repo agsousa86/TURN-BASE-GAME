@@ -6,11 +6,12 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Project 6 Turn Base Game</title>
+    <title>Turn Base Game</title>
     <meta name="description" content="turn base game">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 
+<!-- dragon ball font style -->
 	  <link href="https://fonts.googleapis.com/css?family=Ravi+Prakash" rel="stylesheet">
 	  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
 	  <link rel="stylesheet" href="css/style.css">
@@ -20,40 +21,53 @@
   <body>
 
 	<div class="container-fluid">
-		<div class="row">
-			<div class="col-sm-12"><h3 class="display-4 text-center animated lightSpeedIn">Z Games</h3></div>
-		</div>
+			<div class="row">
+
+				<div class="col-sm-12"><h3 class="display-4 text-center animated lightSpeedIn">Z Fight</h3></div>
+
+			</div>
 
 		<div class="row d-flex align-items-center">
+
 			<div class="col-sm-3 text-center">
-        <button type="button" class="btn btn-success animated bounceInLeft " onclick="location.reload();">New Game</button>
+
+			<button type="button" class="btn btn-success animated bounceInLeft " onclick="location.reload();">New Game</button>
+
 			</div>
 
 			<div class="col-sm-6 text-center bg-light weaponds">
 				<div class="row">
-					<div class="col-sm-3"><h5>Bean</h5><img src='img/senzu_bean.png' height="40" width="40"alt="bean"><p>Damage: 20</p></div>
-					<div class="col-sm-3"><h5>Z Sword</h5><img src='img/sword.png' height="40" width="40" alt="sword"><p>Damage: 30</p></div>
-					<div class="col-sm-3"><h5>Power Pole</h5><img src='img/pole.png' height="40" width="40" alt="Pole"><p>Damage: 40</p></div>
-					<div class="col-sm-3"><h5>Ball</h5><img src='img/dragon_ball.png' height="40" width="40" alt="Dragon Ball"><p>Damage: 50</p></div>
+					<div class="col-sm-3"><h5>Senzu Bean</h5><img src='img/senzu_bean.png' height="40" width="40"alt="senzu bean"><p>Damage: 20</p></div>
+					<div class="col-sm-3"><h5>Z Sword</h5><img src='img/sword.png' height="40" width="40" alt="Sword"><p>Damage: 30</p></div>
+					<div class="col-sm-3"><h5>Power Pole</h5><img src='img/pole.png' height="40" width="40" alt="pole"><p>Damage: 40</p></div>
+					<div class="col-sm-3"><h5>Ball</h5><img src='img/dragon_ball.png' height="40" width="40" alt="Ball"><p>Damage: 50</p></div>
 				</div>
 			</div>
-
 			<div class="col-sm-3 text-center">
-				<button type="button" class="btn btn-success animated bounceInRight" data-toggle="modal" data-target="#rulesmodal">Game Rules</button>
-			</div>
-		</div>
 
-		<div class="row"><hr class="my-2"></div>
+				<button type="button" class="btn btn-success animated bounceInRight" data-toggle="modal" data-target="#rulesmodal">Game Rules</button>
+
+			</div>
+
+
+
+		</div><div class="row"><hr class="my-2"></div>
 
 		<div class="row">
+
 			<div class="col-sm-3 text-center bg-light left">
+
 				<h3>Player 1</h3>
 					<p class="btn btn-primary btn-md disabled" id="player1LP">100</p>
 				<h4>Damage</h4>
 					<p id="player1damage">10</p>
+
 						<button type="button" value="Attack" class="btn btn-danger" id="P1A" disabled onclick="attack()">Attack</button>
 						<button type="button" value="Defend" class="btn btn-success" id="P1D" disabled onclick="defend()">Defend</button>
-						<img src="img/player1.png" alt="goku player 1" class="img-rounded" height="200" width="200" id="imgleft1">
+
+
+						<img src="img/player1.png" alt="Goku Player 1" class="img-rounded" height="200" width="200" id="imgleft1">
+
 			</div>
 
 			<div class="col-sm-6 text-center">
@@ -63,16 +77,20 @@
 			</div>
 
 			<div class="col-sm-3 text-center bg-light right">
-  			<h3>Player 2</h3>
-  			<p class="btn btn-primary btn-md disabled" id="player2LP">100</p>
-  			<h4>Damage</h4>
-  			<p id="player2damage">10</p>
-  			<button type="button" value="Attack" class="btn btn-danger" id="P2A" disabled onclick="attack()">Attack</button>
-  			<button type="button" value="Defend"class="btn btn-success" id="P2D"  disabled onclick="defend()">Defend</button>
-  			<img src="img/player2.png" alt="vegeta player 2" class="img-rounded" height="200" width="200" id="imgright2">
-			</div>
-		</div>
 
+			<h3>Player 2</h3>
+			<p class="btn btn-primary btn-md disabled" id="player2LP">100</p>
+			<h4>Damage</h4>
+			<p id="player2damage">10</p>
+			<button type="button" value="Attack" class="btn btn-danger" id="P2A" disabled onclick="attack()">Attack</button>
+			<button type="button" value="Defend"class="btn btn-success" id="P2D"  disabled onclick="defend()">Defend</button>
+
+			<img src="img/player2.png" alt="vegita Player 2" class="img-rounded" height="200" width="200" id="imgright2">
+
+			</div>
+
+
+		</div>
 		<!-- MODAL winner-->
 		<div class="modal fade animated bounce" id="winnerbox">
         <div class="modal-dialog modal-dialog-centered">
@@ -100,11 +118,11 @@
         </div>
       </div>
 			<!--Rules Modal-->
-			<div class="modal fade animated bounce" id="rulesmodal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+			<div class="modal fade animated bounce" id="rulesmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 				<div class="modal-dialog" role="document">
 					<div class="modal-content">
 						<div class="modal-header text-center">
-							<h5 class="modal-title text-center" id="ModalLabel">Game Rules</h5>
+							<h5 class="modal-title text-center" id="exampleModalLabel">Game Rules</h5>
 							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 								<span aria-hidden="true">&times;</span>
 							</button>
@@ -112,11 +130,11 @@
 						<div class="modal-body text-center">
 							<p>Begin the battle between two players...</p>
               <p>You can move a maximum of 3 spaces horizontally or vertically.</p>
+              <p>You can collect weapons and increase your damage score.</p>
               <p>The aim of the game is to gain a high weapon damage score and attack the other player.</p>
               <p>Once you are next to them you can attack or defend.</p>
               <p>Good Luck!</p>
 						</div>
-
 						<div class="modal-footer">
 							<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
 						</div>
@@ -126,7 +144,7 @@
 
 	<footer class="row">
 		<div class="col-sm-12 text-center">
-		<p> Andre Sousa Open Classrooms Project Turn Base Game </p>
+		<p> Andre Sousa - Open Classrooms Project Turn Base Game </p>
 		</div>
 	</footer>
 	</div>
@@ -142,7 +160,7 @@
 	<script src="js/map.js"></script>
 	<script src="js/game.js"></script>
 	<script src="js/move.js"></script>
-  <script src="js/fight.js"></script>
+	<script src="js/fight.js"></script>
   </body>
 
 </html>

@@ -1,21 +1,21 @@
+/*  Range of Movement   */
 Player.prototype.setRange = function(currentPostion) {
   $("div#mapgen > div").removeClass('range2');
 
-  rX=[];  // porque estao aqui estas duas variaveis?
+  rX=[]; // porque estao aqui estas duas arrays
   rY=[];
 
   let up = currentPostion - 10;
-  let down = currentPostion + 10;
-  let left = currentPostion - 1;
+  let down= currentPostion + 10;
+  let left = currentPostion -1;
   let right = currentPostion + 1;
   let blocked = false;
-  let xmin = currentPostion - currentPostion % 10; //change to let or const ?
+  var xmin = currentPostion - currentPostion % 10;
   var xmax = xmin + 9;
 
-  while(up >=0 && up >= currentPostion - 30) {
+  while(up >=0 && up >= currentPostion - 30){
     blocked = false;
-    let classList = $("div#" + up).attr('class').split(/\s+/);
-
+    let classList = $("div#"+up).attr('class').split(/\s+/);
     $.each(classList, function(index, item) {
       if (item === 'block' || item === 'player1' || item === 'player2') {
         blocked = true;
@@ -33,7 +33,7 @@ Player.prototype.setRange = function(currentPostion) {
 
   while(down <= 99 && down <= currentPostion + 30) {
     blocked = false;
-    let classList = $("div#"+down).attr('class').split(/\s+/);
+    let classList = $("div#" + down).attr('class').split(/\s+/);
 
     $.each(classList, function(index, item) {
       if (item === 'block' || item === 'player1' || item === 'player2') {
@@ -49,10 +49,9 @@ Player.prototype.setRange = function(currentPostion) {
     down = down + 10;
   }
 
-  while(left >= xmin && left >= currentPostion - 3) {
+  while(left >= xmin && left >= currentPostion - 3){
     blocked = false;
     let classList = $("div#" + left).attr('class').split(/\s+/);
-
     $.each(classList, function(index, item) {
       if (item === 'block' || item === 'player1' || item === 'player2') {
         blocked = true;
@@ -67,10 +66,9 @@ Player.prototype.setRange = function(currentPostion) {
     left = left - 1;
   }
 
-  while(right <= xmax && right <= currentPostion + 3){
+  while(right <= xmax && right <= currentPostion + 3) {
     blocked = false;
     let classList = $("div#" + right).attr('class').split(/\s+/);
-
     $.each(classList, function(index, item) {
       if (item === 'block' || item === 'player2' || item === 'player1') {
           blocked = true;
@@ -82,7 +80,7 @@ Player.prototype.setRange = function(currentPostion) {
       $("div#" + right).addClass('range2');
       rX.push(right);
     }
-    right= right + 1;
+    right = right + 1;
   }
 
   return [rX,rY];
@@ -116,35 +114,35 @@ Player.prototype.move = function(target) {
 
   //parses a string and returns an integer
   target = parseInt(target);
-  //cells change
-  cells.splice(this.position, 1);
-  cells[target] = this.name;
+  //arr change
+  arr.splice(this.position, 1);
+  arr[target] = this.name;
 
   // class change
-  let oldbox = document.getElementById(this.position);
+  var oldbox = document.getElementById(this.position);
   oldbox.classList.remove(this.name);
-  let newbox = document.getElementById(target);
+  var newbox = document.getElementById(target);
   newbox.classList.add(this.name);
 
   //check for weapon
-  let searchFrom = this.position;
-  let searchTo = target;
+  var searchFrom = this.position;
+  var searchTo = target;
   checkWeapon(searchFrom, searchTo, target);
 
   this.position = target;
-  playerNearby= [target - 1, target + 1, target - 10, target + 10];
+  playersNearby = [target-1,target+1,target-10,target+10];
 
   switch(this.name) {
     case 'player1':
-      newbox.innerHTML = '<img src="img/'+this.image + '" height="58"></img>';
+      newbox.innerHTML = '<img src="img/'+this.image+'" height="58"></img>';
       break;
     case 'player2':
-      newbox.innerHTML = '<img src="img/'+this.image + '" height="58"></img>';
+      newbox.innerHTML = '<img src="img/'+this.image+'" height="58"></img>';
       break;
   }
   oldbox.innerHTML = "";
 
-  //check for playerNearby player
+  //check for adjacents player
   $.each(playersNearby, function(index, playerNearBy) {
     if ($("#" + playerNearBy).find('img').length) {
       fight = true;
@@ -170,7 +168,7 @@ player1.activatePlayer();  //starting player
 
 box.hover(function(){
     if (jQuery.inArray(parseInt(this.id), rX) >= 0 || jQuery.inArray(parseInt(this.id), rY) >= 0) {
-      $(this).addClass(window.activePlayer.name + 'Moving') ;
+      $(this).addClass(window.activePlayer.name + 'Moving');
     }
   }, function(){
     $(this).removeClass(window.activePlayer.name + 'Moving');
@@ -180,7 +178,7 @@ box.hover(function(){
 box.on("click", function() {
   var target = parseInt(this.id);
   if (jQuery.inArray(target, rX) >= 0 || jQuery.inArray(target, rY) >= 0) {
-    box.removeClass(window.activePlayer.name + 'Moving');
+    box.removeClass(window.activePlayer.name+'Moving');
     activePlayer.move(target);
   }
 });
@@ -188,18 +186,18 @@ box.on("click", function() {
 
 
 /*  Change weapon  */
-function checkWeapon(searchFrom, searchTo, target) { // porque precisa da array ? o que esta a fazer diff ?
-  let diff = searchTo - searchFrom;
-  let movedArr = []; //movedcells ?
-  if (diff > 0) {
-    if (diff <= 3) {
-      for(let i = searchFrom; i <= searchTo; i++) {
+function checkWeapon(searchFrom, searchTo, target) {
+  var diff = searchTo - searchFrom;
+  var movedArr = [];
+  if (diff > 0){
+    if (diff <= 3){
+      for(let i = searchFrom; i <= searchTo; i++){
         if (jQuery.inArray(i, rX) >= 0) {
           movedArr.push(i);
         }
       }
     }else{
-      for(let i = searchFrom; i <= searchTo; i+=10) {
+      for(let i = searchFrom; i <= searchTo; i+=10){
         if (jQuery.inArray(i, rY) >= 0) {
           movedArr.push(i);
         }
@@ -207,7 +205,7 @@ function checkWeapon(searchFrom, searchTo, target) { // porque precisa da array 
     }
   }else{
     if (diff >= -3){
-      for(let i = searchFrom; i >= searchTo; i--) {
+      for(let i = searchFrom; i >= searchTo; i--){
         if (jQuery.inArray(i, rX) >= 0) {
           movedArr.push(i);
         }
@@ -221,8 +219,8 @@ function checkWeapon(searchFrom, searchTo, target) { // porque precisa da array 
     }
   }
   //change weapond and damage value
-  for(let j = 0; j <= movedArr.length; j++) {
-    let passedBox =$( "div#" + movedArr[j] );
+  for(var j = 0; j <= movedArr.length; j++){
+    var passedBox=$( "div#" + movedArr[j] );
 
     oldWeapon = activePlayer.weapon;
 
@@ -263,3 +261,4 @@ function checkWeapon(searchFrom, searchTo, target) { // porque precisa da array 
     }
   }
 }
+
